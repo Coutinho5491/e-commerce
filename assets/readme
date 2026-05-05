@@ -1,0 +1,21 @@
+🛒 E-commerce de Camisetas de Times
+
+Projeto de e-commerce desenvolvido com o objetivo de simular uma loja virtual de venda de camisetas de times de futebol, aplicando conceitos modernos de desenvolvimento web e boas práticas de mercado.
+
+🚀 Objetivo
+
+Este projeto foi criado como parte do meu portfólio para demonstrar habilidades em desenvolvimento web full stack, incluindo:
+
+-Criação de interfaces modernas e responsivas
+-Integração entre front-end e back-end
+-Gerenciamento de estado e dados
+-Simulação de fluxo completo de compra
+
+🧠 Funcionalidades
+-✅ Cadastro e login de usuários
+-🛍️ Listagem de produtos (camisetas de times)
+-🔍 Busca e filtro de produtos
+-🛒 Carrinho de compras
+-💳 Simulação de checkout
+-📦 Página de detalhes do produto
+-📱 Layout responsivo (mobile e desktop)
