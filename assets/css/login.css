@@ -1,0 +1,231 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* BODY */
+body {
+    color: #fff;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* escurece */
+    z-index: -1;
+}
+
+/*VIDEO DO ESTADIO FUNDO*/
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* faz o vídeo preencher tudo */
+    z-index: -1; /* fica atrás de tudo */
+}
+
+/* HEADER */
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: #ffffff;
+}
+
+.cabecalho-logo {
+    width: 50px;
+}
+
+.cabecalho-nome-logo {
+    display: flex;
+    width: 150px;
+    left: 50px;
+    margin-left: -330px;
+    margin-top: 9px;
+}
+
+.menu-cabecalho {
+    display: flex;
+    gap: 25px;
+    margin-left: 900px;
+}
+
+.cabecalho-item-menu {
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cabecalho-item-menu:hover {
+    color: #007bff;
+}
+
+.carrinho-cabecalho {
+    width: 35px;
+    cursor: pointer;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.conteudo {
+    padding: 40px;
+    border-radius: 100%;
+}
+
+/* BORDAO */
+.bordao {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* GRID LOGIN + CADASTRO */
+.conteudo-principal-login,
+.conteudo-principal-cadastro {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.conteudo-principal-login {
+    width: 45%;
+}
+
+.conteudo-principal-cadastro {
+    width: 45%;
+    margin-left: 5%;
+}
+
+/* CARD LOGIN */
+.conteudo-login {
+    background: #0b2a4a;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.logo-login {
+    width: 50px;
+}
+
+.nome-logo-login {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.conteudo-login h2 {
+    margin: 5px 0;
+}
+
+.acesso-login input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: none;
+}
+
+.checkbox-lembrar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.esqueci-senha {
+    font-size: 14px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+/* BOTÃO */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+button:hover {
+    background: #c40812;
+}
+
+/* LOGIN SOCIAL */
+.opções-acesso {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.opções-acesso img {
+    width: 40px;
+    cursor: pointer;
+}
+
+/* CARD CADASTRO */
+.conteudo-principal-cadastro {
+    background: #fff;
+    color: #000;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.conteudo-cadastro input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.checkbox-aceitar {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/* BOTÃO CADASTRO */
+.conteudo-principal-cadastro button {
+    background: #28a745;
+}
+
+.conteudo-principal-cadastro button:hover {
+    background: #218838;
+}
+
+/* RODAPÉ */
+.rodape {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.conteudo-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imagens-cartoes img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.imagen-site-seguro img {
+    width: 100px;
+}

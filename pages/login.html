@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Fanáticos Clube - Sua paixão, sua camisa.">
     <title>Fanáticos Clube</title>
+    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
+    <video autoplay muted loop class="video-bg">
+    <source src="../assets/video/cena_estadio.mp4" type="video/mp4">
+</video>
     <header class="cabecalho">
         <img class="cabecalho-logo" src="../assets/image/logo_e-commerce_01.png" alt="logo-fanáticos Clube">
         <img class="cabecalho-nome-logo" src="../assets/image/nome_logo_fanáticos.png" alt="nome-logo">
@@ -22,33 +26,171 @@
 
     <main class="conteudo">
 
-        <section class="conteudo-principal">
-            <h1 class="bordao">FANÁTICOS CLUBE - SUA PAIXÃO, SUA CAMISA.</h1>
+        <h1 class="bordao">FANÁTICOS CLUBE - SUA PAIXÃO, SUA CAMISA.</h1>
+        <section class="conteudo-principal-login">
+            
             <div class="conteudo-login">
-                <img class="logo-login" src="../assets/image/logo_e-commerce_01.png" alt="logo fanáticos clube">
-                <img class="nome-logo-login" src="../assets/image/nome_logo_fanáticos_branca.png" alt="nome logo branco">
+                <img class="logo-login" src="../assets/image/logo_e-commerce_01.png">
+                <img class="nome-logo-login" src="../assets/image/nome_logo_fanáticos_branca.png">
+
                 <h2 class="nome login">LOGIN</h2>
                 <h2 class="conteudo-escrito-login">ACESSAR MINHA CONTA</h2>
-                <div class="acesso-login">
-                    <input type="email" or type="number" name="E-mail ou CPF" placeholder="E-mail ou CPF" required>
-                    <input type="password" name="senha" placeholder="senha" required>
-                </div>
-                <form class="checkbox-lembrar">
-                    <input type="checkbox" id="lembrar">
-                    <label for="lembrar">Lembrar-me</label>
+
+                <form id="login-form">
+                    <div class="acesso-login">
+                        <input type="email" name="email" placeholder="E-mail" required>
+                        <input type="password" name="password" placeholder="Senha" required>
+                    </div>
+
+                    <div class="checkbox-lembrar">
+                        <input type="checkbox" id="lembrar">
+                        <label for="lembrar">Lembrar-me</label>
+                    </div>
+
+                    <p class="esqueci-senha">Esqueci a senha?</p>
+
+                    <button type="submit">ENTRAR</button>
                 </form>
-                <h2 class="esqueci-senha">Esqueci a senha?</h2>
 
-                
+                <h3>ou Entre com:</h3>
 
-
-
+                <nav class="opções-acesso">
+                    <img class="imagem google" src="../assets/image/logo_google.png">
+                </nav>
             </div>
 
         </section>
 
+        <section class="conteudo-principal-cadastro">
+            <h2>REGISTRAR-SE</h2>
+            <h4>CRIE SUA CONTA GRÁTIS</h4>
+            <h4>Faça parte do clube e garanta mantos exclusivos!</h4>
+
+            <form id="register-form" class="conteudo-cadastro">
+
+                <h5>Nome Completo</h5>
+                <input type="text" id="name" placeholder="Nome Completo" required>
+
+                <h5>E-mail</h5>
+                <input type="email" id="email" placeholder="Digite seu E-mail" required>
+
+                <h5>CPF</h5>
+                <input type="text" id="cpf" placeholder="CPF" required>
+
+                <h5>Telefone</h5>
+                <input type="text" id="telefone" placeholder="Telefone" required>
+
+                <h5>Senha</h5>
+                <input type="password" id="password" placeholder="Senha" required>
+
+                <h5>Confirmar Senha</h5>
+                <input type="password" id="confirmPassword" placeholder="Confirmar Senha" required>
+
+                <div class="checkbox-aceitar">
+                    <input type="checkbox" id="aceitar" required>
+                    <label for="aceitar">Aceito os Termos, Condições e Politica de Privacidade</label>
+                </div>
+
+                <button type="submit">CADASTRAR</button>
+            </form>
+        </section>
+
     </main>
 
+    <footer class="rodape">
+        <div class="conteudo-rodape">
+            <nav class="imagens-cartoes">
+                <img class="" src="../assets/image/logo_visa.png" alt="logo visa">
+                <img class="" src="../assets/image/logo_mastercard.png" alt="logo mastercard">
+                <img class="" src="..//assets/image/logo_paypal.png" alt="logo paypal">
+            </nav>
+            <nav class="imagen-site-seguro">
+                <img class="" src="..//assets/image/logo_site_seguro.png">
+            </nav>
+        </div>
+    </footer>
+
+<!------------------------------------SCRIPT------------------------------------------------->
+<!-------------------------SCRIPT DE LOGIN-------------------------->
+<script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        try {
+            const response = await fetch('http://localhost:3000/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                localStorage.setItem('token', data.token);
+                alert('Login realizado com sucesso!');
+            } else {
+                alert(data.error);
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert('Erro ao conectar com o servidor');
+        }
+    });
+</script>
+
+<!-------------------------SCRIPT DE CADASTRO-------------------------->
+
+<script>
+document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const cpf = document.getElementById('cpf').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    // remove pontos e traços
+    const cleanCpf = cpf.replace(/\D/g, '');
+    // valida quantidade de caracteres do cpf
+    if (cleanCpf.length !== 11) { alert('CPF deve conter 11 números'); return; }
+
+    // valida senha
+    if (password !== confirmPassword) {
+        alert('As senhas não coincidem');
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:3000/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({ name, email, password, cpf:cleanCpf })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert('Cadastro realizado com sucesso!');
+        } else {
+            alert(data.error);
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert('Erro ao conectar com o servidor');
+    }
+});
+</script>
 
 </body>
 </html>
