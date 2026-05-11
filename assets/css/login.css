@@ -38,6 +38,8 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
     padding: 15px 40px;
     background: #ffffff;
 }
@@ -47,17 +49,15 @@ body::after {
 }
 
 .cabecalho-nome-logo {
-    display: flex;
     width: 150px;
-    left: 50px;
-    margin-left: -330px;
-    margin-top: 9px;
+    margin-top: 8px;
 }
 
 .menu-cabecalho {
     display: flex;
-    gap: 25px;
-    margin-left: 900px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .cabecalho-item-menu {
@@ -228,4 +228,59 @@ button:hover {
 
 .imagen-site-seguro img {
     width: 100px;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .cabecalho {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-cabecalho {
+        justify-content: center;
+    }
+
+    .bordao {
+        font-size: 22px;
+    }
+
+    .conteudo {
+        padding: 20px;
+    }
+
+    .conteudo-login,
+    .conteudo-principal-cadastro {
+        width: 100%;
+    }
+
+    .conteudo-rodape {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+}
+
+/*Ajusta para telas menores*/
+
+@media (max-width: 768px) {
+
+    .conteudo {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .conteudo-principal-login,
+    .conteudo-principal-cadastro {
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        margin-left: 0;
+    }
+
 }
