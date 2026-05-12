@@ -1,0 +1,184 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body {
+    background: #0b1220;
+    color: white;
+}
+
+/* HEADER */
+.cabecalho {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 40px;
+
+    background: rgba(0,0,0,0.8);
+
+    backdrop-filter: blur(8px);
+
+    z-index: 1000;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 50px;
+}
+
+.nome-logo {
+    width: 170px;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* BANNER */
+.banner {
+    padding-top: 160px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.banner h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.banner p {
+    color: #ccc;
+}
+
+/* FILTROS */
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.filtros input,
+.filtros select {
+    padding: 12px;
+    width: 250px;
+
+    border-radius: 8px;
+    border: none;
+}
+
+/* PRODUTOS */
+.produtos {
+    padding: 40px;
+}
+
+.grid-produtos {
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 30px;
+}
+
+/* CARD */
+.card-produto {
+    background: #131c31;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+}
+
+.card-produto img {
+    width: 100%;
+    max-width: 220px;
+
+    margin-bottom: 20px;
+}
+
+.card-produto h3 {
+    margin-bottom: 10px;
+}
+
+.preco {
+    color: #00ff88;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.card-produto button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #e50914;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .banner h1 {
+        font-size: 36px;
+    }
+
+    .produtos {
+        padding: 20px;
+    }
+
+}
