@@ -129,8 +129,26 @@ app.listen(3000, () => {
   console.log('Servidor rodando na porta 3000'); /*Sistema irá rodar na porta 3000 'http://localhost:3000'*/
 });
 
-/*----------------------------------*/
+/*------------ROTA API PRODUTOS----------------------*/
 
+app.get('/products', async (req, res) => {
 
+  try {
+
+    const result = await pool.query(
+      'SELECT * FROM products'
+    );
+
+    res.json(result.rows);
+
+  } catch (error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      error: 'Erro ao buscar produtos'
+    });
+  }
+});
 
 /*----------------------------------*/
